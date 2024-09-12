@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<div class="container alert mb-5 mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="{% static 'images/c6.avif' %}" class="img img-thumbnail" alt="">
+        </div>
+        <div class="bi col-sm-6 bg-primary">
+            <h1 style="font-family: Agency FB;color: white;">Login</h1>
+            <span>{{msg}}</span>
+            <form action="{% url 'logincheck' %}" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input name="username" id="usernameid" class="form-control border border-1" type="email" placeholder="username">
+                </div>
+                <div class="mb-3">
+                    <input name="pass" id="passid" class="form-control border border-1" type="password" placeholder="Password:">
+                </div>
+                <div style="text-align: center;">
+                    <button class="btn btn-primary" type="reset">Reset</button>
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+        <p class="move">Don't registered? <a  href="{% url 'register' %}">Register here</a></p>
+    </div>
+</div>
+{% endblock content %}

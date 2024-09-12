@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .move{
+        text-align: center;
+        padding-left: 230px;
+    }
+</style>
+<div class="container mb-5 mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="{% static 'images/c8.jpg' %}" class="img img-thumbnail" alt="">
+        </div>
+        <div class="col-sm-6 bi pt-2">
+            <h1 style="font-family: Agency FB; color: aliceblue;">Registration Page</h1>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class=" alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            <form action="{% url 'doregister' %}" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input name="fullname" id="fullnameid" class="form-control border border-1" type="text" placeholder="FullName:" value="{{ request.POST.fullname }}">
+                </div>
+                <div class="mb-3">
+                    <input name="email" id="emailid" class="form-control border border-1" type="email" placeholder="Email:" value="{{ request.POST.email }}" required>
+                </div>
+                <div class="mb-3">
+                    <input name="password" id="passwordid" class="form-control border border-1" type="password" placeholder="Password:" value="{{ request.POST.password }}">
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit">Register</button>
+                    <button class="btn btn-primary" type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+        <p class="move">Already registered? <a  href="{% url 'login' %}">Login here</a></p>
+    </div>
+</div>
+{% endblock content %}
