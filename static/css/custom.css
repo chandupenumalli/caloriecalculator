@@ -1,0 +1,17 @@
+
+    .bi {
+        background-image: url('../images/r3.jpg');
+        background-position: center;
+        background-size: cover;
+        padding-bottom: 10px;
+    }
+    .move{
+        text-align: center;
+        padding-left: 230px;
+    }
+    .bj{
+        background-image:url('../images/co1.jpg');
+        background-position: center;
+        background-size: cover;
+        padding-bottom: 10px;
+    }
